@@ -1,0 +1,24 @@
+# Dependencies i builds
+node_modules/
+dist/
+.vite/
+*.log
+
+# ---------------------------------------------------------------------------
+# DADES PERSONALS D'ALUMNAT — NO PUBLICAR MAI EN UN REPOSITORI PÚBLIC
+# Treballs lliurats, memòries i retroalimentacions amb nom i cognoms.
+# ---------------------------------------------------------------------------
+25-26/Entregas/
+26-27/recursos/Projectes alumnes 25-26/
+
+# Material de tercers (pes i drets d'autor)
+*.mp4
+*.mov
+*.avi
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
