@@ -34,7 +34,17 @@ Cada projecte ha de tenir feina real per a ASIX (infraestructura, xarxa, núvol 
 
 ## La web del mòdul
 
-Pàgines: inici, **activitats** (índex i detall d'A1 a A5), **metodologia** (històries d'usuari, casos d'ús, backlog, MoSCoW, diagrama de context i pas del model E/R al relacional), **exemple resolt** (AccésCentre, amb les activitats 1 a 3 completes), teoria, casos d'empresa, avaluació i recursos.
+**Publicada a https://zenidx.github.io/Digitalitzacio-1665/**
+
+Pàgines: inici, **activitats** (índex i detall d'A1 a A5), **metodologia** (històries d'usuari, casos d'ús, backlog, MoSCoW, diagrama de context i pas del model E/R al relacional), **exemple resolt** (AccésCentre, amb les activitats 1 a 3 completes), teoria, casos d'empresa, avaluació i **recursos**, que inclou els materials del mòdul descarregables.
+
+El desplegament es fa amb `gh-pages` des de la branca `main`:
+
+```bash
+cd 26-27/Web
+npm run build
+npx gh-pages -d dist
+```
 
 ```bash
 cd 26-27/Web

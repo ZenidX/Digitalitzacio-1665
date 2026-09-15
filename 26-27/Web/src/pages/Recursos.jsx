@@ -4,7 +4,7 @@ import {
   ExternalLink, Cloud, Cpu, Database, Brain, Shield, BookOpen, Video, Wrench, Github,
   ChevronDown, ChevronUp, Layers, GitBranch, Activity, Lock, Network, Gauge,
   Server, CloudCog, Terminal, Plug, Sparkles, AlertTriangle, FolderOpen, ListChecks,
-  FileText, Presentation,
+  FileText, Presentation, Download, Info,
 } from 'lucide-react'
 
 const recursos = [
@@ -173,13 +173,108 @@ const einesPrototipatgeIA = [
   { nom: 'Lovable', url: 'https://lovable.dev/', desc: 'Genera una app web amb IA amb un editor visual per retocar-la després' },
 ]
 
-const materialModul = [
-  { nom: 'Material curricular oficial (IOC)', desc: 'Continguts complets del mòdul 1665, en PDF', icon: FileText },
-  { nom: 'Resum de continguts', desc: 'Resum en Markdown per a consulta ràpida durant les activitats', icon: BookOpen },
-  { nom: 'El Backlog en Scrum', desc: 'Guia per prioritzar i estimar el product backlog (Activitat 3)', icon: ListChecks },
-  { nom: '"Las 4 capas del IoT con Big Data"', desc: 'Vídeo introductori sobre IoT i Big Data, recomanat per a l\'Activitat 1', icon: Video },
-  { nom: 'Incorporació del mòdul de Digitalització a les famílies industrials', desc: 'Document oficial d\'origen del mòdul dins del currículum', icon: FileText },
-  { nom: 'Projectes d\'exemple del curs passat', desc: 'Projectes reals d\'alumnat d\'edicions anteriors, com a referència de nivell i format', icon: FolderOpen },
+// Materials descarregables directament des de public/recursos/
+const materialsModul = [
+  {
+    titol: 'Per fer les activitats',
+    materials: [
+      {
+        nom: "Guia d'històries d'usuari, backlog i casos d'ús",
+        desc: "Criteris d'acceptació, backlog MoSCoW i casos d'ús: la base didàctica per als punts 2.1, 2.2 i 3.1 de les activitats.",
+        fitxer: 'guia-histories-usuari-backlog-casos-us.docx',
+        format: 'DOCX',
+        mida: '226 KB',
+        icon: ListChecks,
+        relacio: { label: 'Metodologia', to: '/metodologia' },
+      },
+      {
+        nom: 'El Backlog en Scrum',
+        desc: "Lectura prèvia del lliurable 3.1: com prioritzar i estimar el product backlog amb MoSCoW i dependències (13 pàgines).",
+        fitxer: 'el-backlog-en-scrum.pdf',
+        format: 'PDF',
+        mida: '292 KB',
+        icon: ListChecks,
+        relacio: { label: 'Metodologia', to: '/metodologia' },
+      },
+      {
+        nom: "Catàleg de tecnologies d'arquitectura per a ASIX",
+        desc: "10 dominis amb tecnologies classificades per nivell (bàsic, intermedi, avançat), per triar l'arquitectura del projecte.",
+        fitxer: 'cataleg-tecnologies-arquitectura-asix.docx',
+        format: 'DOCX',
+        mida: '20 KB',
+        icon: Layers,
+        relacioAncora: { label: "catàleg d'arquitectura per a ASIX", href: '#catalog-arquitectura-asix' },
+      },
+      {
+        nom: 'Diagrama general de context (DGC)',
+        desc: 'Document de referència per construir el diagrama de context (nivell C4-1) del projecte, útil per al lliurable 1.4.',
+        fitxer: 'diagrama-general-de-context.pdf',
+        format: 'PDF',
+        mida: '45 KB',
+        icon: FileText,
+      },
+      {
+        tipus: 'video',
+        nom: '"Las 4 capas del IoT con Big Data"',
+        desc: "Lectura prèvia recomanada de l'Activitat 1 per a la part de sensors i IoT, quan el projecte té component OT.",
+        url: 'https://www.youtube.com/watch?v=jJuBcaMQh0s',
+        durada: '19 min',
+      },
+    ],
+  },
+  {
+    titol: "Projecte d'exemple",
+    materials: [
+      {
+        nom: 'Enunciat: AccésCentre',
+        desc: "Projecte d'exemple complet (control d'accessos i assistència d'un institut), per fer-se una idea del nivell i el format esperats.",
+        fitxer: 'enunciat-projecte-control-accessos.docx',
+        format: 'DOCX',
+        mida: '9 KB',
+        icon: BookOpen,
+        relacio: { label: "Projecte d'exemple", to: '/exemple' },
+      },
+      {
+        nom: 'Enunciat resolt (Activitats 1, 2 i 3)',
+        desc: 'El mateix projecte amb les activitats 1, 2 i 3 resoltes senceres, com a referència de com desenvolupar-les.',
+        fitxer: 'enunciat-projecte-control-accessos-resolt.docx',
+        format: 'DOCX',
+        mida: '477 KB',
+        icon: FolderOpen,
+        relacio: { label: "Projecte d'exemple", to: '/exemple' },
+      },
+    ],
+  },
+  {
+    titol: 'Documentació oficial del mòdul',
+    materials: [
+      {
+        nom: 'Programació del mòdul 1665 (curs 2026-27)',
+        desc: "Programació oficial del mòdul: continguts, criteris d'avaluació i temporització del curs.",
+        fitxer: 'programacio-modul-1665-2627.docx',
+        format: 'DOCX',
+        mida: '286 KB',
+        icon: FileText,
+        relacio: { label: 'Avaluació', to: '/avaluacio' },
+      },
+      {
+        nom: 'Incorporació del mòdul de Digitalització a la FP',
+        desc: 'Document oficial de la Generalitat sobre la incorporació del mòdul de Digitalització dins el currículum de FP.',
+        fitxer: 'incorporacio-modul-digitalitzacio-fp.pdf',
+        format: 'PDF',
+        mida: '889 KB',
+        icon: FileText,
+      },
+      {
+        nom: 'Material de Digitalització (IOC)',
+        desc: "Material curricular complet del mòdul, de l'Institut Obert de Catalunya: unitat 1 (digitalització, IT/OT), unitat 2 (tecnologies habilitadores i núvol) i unitat 3 (IA, dades, seguretat i RGPD). Font: IOC.",
+        fitxer: 'material-digitalitzacio-ioc.pdf',
+        format: 'PDF',
+        mida: '4 MB',
+        icon: FileText,
+      },
+    ],
+  },
 ]
 
 // Catàleg d'arquitectura per a ASIX, organitzat en 10 dominis
@@ -555,6 +650,86 @@ function TaulaTecnologies({ items }) {
   )
 }
 
+function MaterialCard({ mat }) {
+  if (mat.tipus === 'video') {
+    return (
+      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+        <div className="flex items-start space-x-3 mb-3">
+          <div className="bg-red-100 text-red-600 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+            <Video className="w-5 h-5" />
+          </div>
+          <div>
+            <h4 className="font-semibold text-gray-900">{mat.nom}</h4>
+            <p className="text-sm text-gray-500 mt-1">{mat.desc}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+          <span className="px-2 py-0.5 bg-gray-100 rounded font-medium">Vídeo</span>
+          <span>{mat.durada}</span>
+        </div>
+        <div className="mt-auto pt-3 border-t border-gray-100">
+          <a
+            href={mat.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700"
+          >
+            <ExternalLink className="w-4 h-4" /> Veure a YouTube (surt de la web)
+          </a>
+        </div>
+      </div>
+    )
+  }
+
+  const href = import.meta.env.BASE_URL + 'recursos/' + mat.fitxer
+  return (
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+      <div className="flex items-start space-x-3 mb-3">
+        <div className="bg-primary-100 text-primary-700 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+          <mat.icon className="w-5 h-5" />
+        </div>
+        <div>
+          <h4 className="font-semibold text-gray-900">{mat.nom}</h4>
+          <p className="text-sm text-gray-500 mt-1">{mat.desc}</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-2 text-xs text-gray-400 mb-3">
+        <span className="px-2 py-0.5 bg-gray-100 rounded font-medium">{mat.format}</span>
+        <span>{mat.mida}</span>
+      </div>
+      {(mat.relacio || mat.relacioAncora) && (
+        <p className="text-xs text-gray-500 mb-3">
+          Ja tens el contingut en format web a{' '}
+          {mat.relacio ? (
+            <Link to={mat.relacio.to} className="underline text-primary-600">{mat.relacio.label}</Link>
+          ) : (
+            <a href={mat.relacioAncora.href} className="underline text-primary-600">{mat.relacioAncora.label}</a>
+          )}, no cal que llegeixis tot el document.
+        </p>
+      )}
+      <div className="mt-auto flex flex-wrap gap-4 pt-3 border-t border-gray-100">
+        <a
+          href={href}
+          download
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:text-primary-700"
+        >
+          <Download className="w-4 h-4" /> Descarregar
+        </a>
+        {mat.format === 'PDF' && (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-600 hover:text-gray-900"
+          >
+            <ExternalLink className="w-4 h-4" /> Obrir al navegador
+          </a>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function Recursos() {
   const [dominisOberts, setDominisOberts] = useState({})
 
@@ -672,7 +847,7 @@ export default function Recursos() {
       </div>
 
       {/* ASIX architecture catalogue */}
-      <div>
+      <div id="catalog-arquitectura-asix">
         <h2 className="text-2xl font-semibold text-gray-900 mb-2">Catàleg d'Arquitectura per a ASIX</h2>
         <p className="text-gray-600 text-sm mb-6">
           Deu dominis de tecnologies habilitadores per dissenyar la infraestructura del projecte (Activitats 2 i 3).
@@ -760,29 +935,30 @@ export default function Recursos() {
         </div>
       </div>
 
-      {/* Module materials (Moodle) */}
-      <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl p-6 text-white">
-        <h2 className="text-xl font-semibold mb-1">Material del Mòdul</h2>
-        <p className="text-sm text-white/80 mb-4">Es distribueix per Moodle, no des d'aquesta web.</p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {materialModul.map((m, i) => (
-            <div key={i} className="flex items-start space-x-3 bg-white/10 p-4 rounded-lg">
-              <m.icon className="w-6 h-6 flex-shrink-0 mt-1" />
-              <div>
-                <p className="font-medium">{m.nom}</p>
-                <p className="text-sm text-white/80">{m.desc}</p>
+      {/* Module materials */}
+      <div>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-2">Material del Mòdul</h2>
+        <p className="text-gray-600 text-sm mb-6">
+          Materials descarregables directament des d'aquesta web, agrupats segons per a què serveixen.
+        </p>
+        <div className="space-y-8">
+          {materialsModul.map((grup) => (
+            <div key={grup.titol}>
+              <h3 className="text-lg font-semibold text-gray-800 mb-4">{grup.titol}</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {grup.materials.map((mat) => (
+                  <MaterialCard key={mat.fitxer || mat.url} mat={mat} />
+                ))}
               </div>
             </div>
           ))}
         </div>
-        <div className="mt-4 pt-4 border-t border-white/20 flex flex-wrap gap-3 text-sm">
-          <Link to="/activitats" className="underline">Què s'ha d'entregar a cada activitat</Link>
-          <span className="text-white/50">·</span>
-          <Link to="/metodologia" className="underline">Guia d'històries d'usuari, backlog i casos d'ús</Link>
-          <span className="text-white/50">·</span>
-          <Link to="/exemple" className="underline">Projecte d'exemple resolt</Link>
-          <span className="text-white/50">·</span>
-          <Link to="/avaluacio" className="underline">Criteris d'avaluació</Link>
+        <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start space-x-3">
+          <Info className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+          <p className="text-sm text-blue-900">
+            El vídeo s'allotja a YouTube (enllaç extern); la resta de materials es pot descarregar directament des d'aquesta web.
+            Els originals també són disponibles a Moodle.
+          </p>
         </div>
       </div>
 
