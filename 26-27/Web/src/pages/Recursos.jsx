@@ -173,6 +173,14 @@ const einesPrototipatgeIA = [
   { nom: 'Lovable', url: 'https://lovable.dev/', desc: 'Genera una app web amb IA amb un editor visual per retocar-la després' },
 ]
 
+// La web fa servir enrutat per hash, de manera que un enllaç <a href="#seccio">
+// substituiria la ruta i deixaria la pàgina en blanc. Per anar a una secció cal
+// desplaçar-s'hi per codi, sense tocar l'URL.
+function anarASeccio(id) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 // Materials descarregables directament des de public/recursos/
 const materialsModul = [
   {
@@ -203,7 +211,7 @@ const materialsModul = [
         format: 'DOCX',
         mida: '20 KB',
         icon: Layers,
-        relacioAncora: { label: "catàleg d'arquitectura per a ASIX", href: '#catalog-arquitectura-asix' },
+        relacioAncora: { label: "catàleg d'arquitectura per a ASIX", id: 'catalog-arquitectura-asix' },
       },
       {
         nom: 'Diagrama general de context (DGC)',
@@ -703,7 +711,13 @@ function MaterialCard({ mat }) {
           {mat.relacio ? (
             <Link to={mat.relacio.to} className="underline text-primary-600">{mat.relacio.label}</Link>
           ) : (
-            <a href={mat.relacioAncora.href} className="underline text-primary-600">{mat.relacioAncora.label}</a>
+            <button
+              type="button"
+              onClick={() => anarASeccio(mat.relacioAncora.id)}
+              className="underline text-primary-600 hover:text-primary-700"
+            >
+              {mat.relacioAncora.label}
+            </button>
           )}, no cal que llegeixis tot el document.
         </p>
       )}

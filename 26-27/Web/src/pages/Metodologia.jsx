@@ -191,6 +191,14 @@ const indexItems = [
   { id: 'er-relacional', num: '13', title: 'Del model E-R al relacional' },
 ]
 
+// La web fa servir enrutat per hash, de manera que un enllaç <a href="#seccio">
+// substituiria la ruta i deixaria la pàgina en blanc. Per anar a una secció cal
+// desplaçar-s'hi per codi, sense tocar l'URL.
+function anarASeccio(id) {
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
 export default function Metodologia() {
   return (
     <div className="space-y-8">
@@ -213,14 +221,15 @@ export default function Metodologia() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {indexItems.map((it) => (
-            <a
+            <button
               key={it.id}
-              href={`#${it.id}`}
-              className="flex items-center space-x-2 p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors"
+              type="button"
+              onClick={() => anarASeccio(it.id)}
+              className="flex items-center space-x-2 p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 transition-colors text-left w-full"
             >
               <span className="w-6 h-6 flex items-center justify-center rounded bg-gray-100 text-gray-500 text-xs font-bold flex-shrink-0">{it.num}</span>
               <span>{it.title}</span>
-            </a>
+            </button>
           ))}
         </div>
       </div>
