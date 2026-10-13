@@ -8,7 +8,7 @@ const activitats = [
     nom: 'Activitat 1 — Idea, objectius i anàlisi de requeriments',
     hores: 8,
     inici: "17 de setembre 2026",
-    fi: "8 d'octubre 2026",
+    fi: "21 d'octubre 2026",
     ra: ['RA1', 'RA2', 'RA4'],
     raInici: ['RA6'],
     color: 'border-blue-300 bg-blue-50',

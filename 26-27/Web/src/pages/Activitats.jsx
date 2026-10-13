@@ -27,7 +27,7 @@ const activitats = {
   1: {
     nom: "Idea, objectius i anàlisi de requeriments",
     hores: 8,
-    periode: "17 de setembre – 8 d'octubre de 2026",
+    periode: "17 de setembre – 21 d'octubre de 2026",
     ra: ["RA1", "RA2", "RA4", "RA6 (inici)"],
     proposit: "Definir el projecte i comprovar que és sòlid i coherent, que resol un problema real d'una empresa, que té l'abast i la complexitat adequats i que encaixa amb les tres especialitats (ASIX, DAM, DAW). En acabar aquesta activitat el projecte queda aprovat, ajustat o descartat.",
     lectures: [

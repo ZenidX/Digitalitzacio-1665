@@ -56,7 +56,7 @@ const activitats = [
     nom: 'Idea, objectius i anàlisi de requeriments',
     hores: '8 h',
     setmanes: 'Setmanes 1-4',
-    dates: '17 set → 8 oct 2026',
+    dates: '17 set → 21 oct 2026',
     ra: 'RA1, RA2, RA4',
     color: 'bg-blue-600',
   },
